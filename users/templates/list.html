@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load filters %}
+
+{% block content %}
+    {% for user in page_obj %}
+        <pre>{{ user|perfect_view|pprint }}</pre>
+    {% endfor %}
+{% endblock %}
