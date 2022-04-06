@@ -1,5 +1,5 @@
 {% load filters %}
 
 {% block content %}
-    <pre>{{ user|perfect_view|pprint }}</pre>
+    <pre>{{ user|user_to_json:add_fields|pprint }}</pre>
 {% endblock %}

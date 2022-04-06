@@ -3,6 +3,6 @@
 
 {% block content %}
     {% for user in page_obj %}
-        <pre>{{ user|perfect_view|pprint }}</pre>
+        <pre>{{ user|user_to_json|pprint }}</pre>
     {% endfor %}
 {% endblock %}
