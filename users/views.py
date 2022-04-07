@@ -23,8 +23,8 @@ class EmailView(View):
     def get(self, request, *args, **kwargs):
         email = request.GET.get('email') or 'пусто!'
         user = User.objects.filter(email=email).select_related('profile').first()
-        add_fields = {'colors': user.profile.favorite_colors, 'sex': user.profile.sex}
         if not user:
             return HttpResponseNotFound(f'<h1>По вашему email - {email} ничего не найдено'
                                         f', введите пожалуйста корректный email</h1>')
+        add_fields = {'colors': user.profile.favorite_colors, 'sex': user.profile.sex}
         return render(request, 'info.html', {'user': user, 'add_fields': add_fields})
